@@ -1,8 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
+
+import Map from 'Map';
 
 const app = () => (
-  <View />
+  <Map />
 );
 
 export default app;
