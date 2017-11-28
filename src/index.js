@@ -1,6 +1,8 @@
 import React from 'react';
 
-import Map from 'Map';
+import 'config/ReactotronConfig';
+
+import Map from 'MapComponent';
 
 const app = () => (
   <Map />
