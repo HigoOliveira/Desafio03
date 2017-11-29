@@ -24,7 +24,7 @@ export default class Map extends Component {
             latitudeDelta: 0.0041,
             longitudeDelta: 0.031,
           }}
-          onLongPress={this.handleLongPress}
+          onLongPress={(event) => { this.handleLongPress(event.nativeEvent); }}
         >
           <MapView.Marker
             coordinate={{
