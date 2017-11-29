@@ -5,6 +5,8 @@ import MapView from 'react-native-maps';
 
 import styles from './styles';
 
+import Modal from 'components/Modal';
+
 export default class Map extends Component {
   state = {};
 
@@ -41,6 +43,7 @@ export default class Map extends Component {
             />
           </MapView.Marker>
         </MapView>
+        <Modal />
       </View>
     );
   }
