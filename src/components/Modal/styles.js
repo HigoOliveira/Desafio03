@@ -5,13 +5,7 @@ const styles = StyleSheet.create({
   overlay: {
     flex: 1,
     justifyContent: 'center',
-  },
-  background: {
-    backgroundColor: colors.black,
-    opacity: 0.6,
-    height: '100%',
-    width: '100%',
-    position: 'absolute',
+    backgroundColor: colors.blackOpacity,
   },
   container: {
     backgroundColor: colors.white,
@@ -22,6 +16,20 @@ const styles = StyleSheet.create({
   title: {
     fontSize: fonts.big,
     color: colors.darker,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  input: {
+    borderColor: colors.light,
+    borderRadius: 5,
+    borderWidth: 1,
+    marginBottom: 10,
+  },
+  containerButton: {
+    flexDirection: 'row',
+    flexGrow: 1,
+    flexBasis: 0,
   },
 });
 

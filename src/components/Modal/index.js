@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import {
   Modal,
   View,
-  TouchableHighlight,
   Text,
+  TextInput,
 } from 'react-native';
 
-import PropTypes from 'prop-types';
+import Button from 'components/Button';
 
 import styles from './styles';
 
+
 export default class MyModal extends Component {
   state = {
-    modalVisible: true,
+    modalVisible: false,
   }
-
 
   setModalVisible(visible) {
     this.setState({ modalVisible: visible });
@@ -26,19 +26,30 @@ export default class MyModal extends Component {
         animationType="slide"
         visible={this.state.modalVisible}
         transparent={true}
-        onRequestClose={() => { alert("Modal has been closed."); }}
+        onRequestClose={() => {}}
       >
         <View style={styles.overlay}>
-          <View style={styles.background} />
           <View style={styles.container}>
-            <Text>Hello World!</Text>
+            <Text style={styles.title}>Adicionar novo local</Text>
+            <TextInput
+              style={styles.input}
+              underlineColorAndroid="rgba(0,0,0,0)"
+            />
 
-            <TouchableHighlight onPress={() => {
-              this.setModalVisible(!this.state.modalVisible);
-            }}
-            >
-              <Text>Hide Modal</Text>
-            </TouchableHighlight>
+            <View style={styles.containerButton}>
+              <Button
+                text="Cancelar"
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}
+              />
+              <Button
+                text="Salvar"
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}
+              />
+            </View>
 
           </View>
         </View>

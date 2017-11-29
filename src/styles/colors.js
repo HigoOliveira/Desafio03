@@ -1,10 +1,10 @@
 export default {
-  black: '#000',
+  blackOpacity: 'rgba(0,0,0,.6)',
   darker: '#333',
 
-  grey: '#CCC',
   light: '#DDD',
   white: '#FFF',
 
   primary: '​#85C47C',
+  inactive: '#CCC',
 };

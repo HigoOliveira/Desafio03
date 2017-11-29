@@ -3,9 +3,10 @@ import { View, Image } from 'react-native';
 
 import MapView from 'react-native-maps';
 
+import Modal from 'components/Modal';
+
 import styles from './styles';
 
-import Modal from 'components/Modal';
 
 export default class Map extends Component {
   state = {};
@@ -13,6 +14,7 @@ export default class Map extends Component {
   handleLongPress = (e) => {
     console.tron.log('me chamou');
     console.tron.log(e); // <- Não aparece
+    this.modal.setModalVisible(true);
   }
 
   render() {
@@ -43,7 +45,7 @@ export default class Map extends Component {
             />
           </MapView.Marker>
         </MapView>
-        <Modal />
+        <Modal ref={(ref) => { this.modal = ref; }} />
       </View>
     );
   }
