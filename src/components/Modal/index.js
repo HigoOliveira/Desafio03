@@ -6,14 +6,17 @@ import {
   TextInput,
 } from 'react-native';
 
+import { connect } from 'react-redux';
+
 import PropTypes from 'prop-types';
+
+import { addUser } from 'redux/ducks/users';
 
 import Button from 'components/Button';
 
 import styles from './styles';
 
-
-export default class MyModal extends Component {
+class MyModal extends Component {
   static propTypes = {
     onCloseModal: PropTypes.func.isRequired,
     visible: PropTypes.bool.isRequired,
@@ -21,6 +24,7 @@ export default class MyModal extends Component {
       latitude: PropTypes.number,
       longitude: PropTypes.number,
     }).isRequired,
+    addUser: PropTypes.func.isRequired,
   }
 
   state = {
@@ -43,7 +47,7 @@ export default class MyModal extends Component {
               underlineColorAndroid="rgba(0,0,0,0)"
               placeholder="Usuário no Github"
               value={this.state.user}
-              onTextChange={user => this.setState({ user })}
+              onChangeText={user => this.setState({ user })}
             />
 
             <View style={styles.containerButton}>
@@ -57,6 +61,7 @@ export default class MyModal extends Component {
               <Button
                 text="Salvar"
                 onPress={() => {
+                  this.props.addUser(this.state.user, this.props.coordinate);
                   this.props.onCloseModal();
                 }}
                 primary
@@ -70,3 +75,5 @@ export default class MyModal extends Component {
     );
   }
 }
+
+export default connect(null, { addUser })(MyModal);

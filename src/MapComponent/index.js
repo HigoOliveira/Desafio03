@@ -22,7 +22,7 @@ class Map extends Component {
       }).isRequired,
       login: PropTypes.string,
       bio: PropTypes.string,
-      image: PropTypes.string,
+      avatar_url: PropTypes.string,
     })).isRequired,
   }
 
@@ -32,12 +32,11 @@ class Map extends Component {
   }
 
   handleLongPress = (e) => {
-    console.tron.log(e.coordinate); // <- Não aparece
-    this.setState({ showModal: true, coordinate: {} });
+    this.setState({ showModal: true, coordinate: e.coordinate });
   }
 
   render() {
-    console.log(this.props);
+    console.tron.log(this.props.users);
     return (
       <View style={styles.container}>
         <MapView
@@ -60,8 +59,9 @@ class Map extends Component {
               <View style={styles.border}>
                 <Image
                   source={{
-                    uri: user.image,
+                    uri: user.avatar_url,
                   }}
+                  key={`image-key-${user.id}`}
                   style={styles.image}
                   onLoad={() => this.forceUpdate()}
                 />

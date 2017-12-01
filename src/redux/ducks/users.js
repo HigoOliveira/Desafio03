@@ -1,18 +1,46 @@
-// Type actions
+// Action Types
 export const Types = {
-  GET: 'users/GET',
-  LOAD: 'users/LOAD',
+  SEARCH: 'users/SEARCH',
+  ADD: 'users/ADD',
 };
 
-// Reducers
+// Reducer
 
 const initialState = [];
 
 export default function users(state = initialState, action) {
-  switch (action.Types) {
-    case Types.GET:
-      return [...state, action.payload.user];
+  switch (action.type) {
+    case Types.ADD:
+    {
+      const {
+        id,
+        login,
+        avatar_url,
+        bio,
+      } = action.payload.user;
+
+      return [...state,
+        {
+          id,
+          login,
+          avatar_url,
+          bio,
+          coordinate: action.payload.coordinate,
+        }];
+    }
     default:
       return state;
   }
+}
+
+// Action Creators
+
+export function addUser(user, coordinate) {
+  return {
+    type: Types.SEARCH,
+    payload: {
+      user,
+      coordinate,
+    },
+  };
 }
