@@ -26,9 +26,14 @@ class Map extends Component {
     })).isRequired,
   }
 
+  state = {
+    showModal: false,
+    coordinate: {},
+  }
+
   handleLongPress = (e) => {
     console.tron.log(e.coordinate); // <- Não aparece
-    this.modal.setModalVisible(true);
+    this.setState({ showModal: true, coordinate: {} });
   }
 
   render() {
@@ -64,7 +69,11 @@ class Map extends Component {
             </MapView.Marker>
             ))}
         </MapView>
-        <Modal ref={(ref) => { this.modal = ref; }} />
+        <Modal
+          visible={this.state.showModal}
+          coordinate={this.state.coordinate}
+          onCloseModal={() => this.setState({ showModal: false, coordinate: {} })}
+        />
       </View>
     );
   }
