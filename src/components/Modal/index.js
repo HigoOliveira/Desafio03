@@ -25,7 +25,7 @@ export default class MyModal extends Component {
       <Modal
         animationType="slide"
         visible={this.state.modalVisible}
-        transparent={true}
+        transparent
         onRequestClose={() => {}}
       >
         <View style={styles.overlay}>
@@ -43,12 +43,15 @@ export default class MyModal extends Component {
                 onPress={() => {
                   this.setModalVisible(!this.state.modalVisible);
                 }}
+                left
               />
               <Button
                 text="Salvar"
                 onPress={() => {
                   this.setModalVisible(!this.state.modalVisible);
                 }}
+                primary
+                right
               />
             </View>
 

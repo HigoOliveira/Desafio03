@@ -5,6 +5,6 @@ export default {
   light: '#DDD',
   white: '#FFF',
 
-  primary: '​#85C47C',
+  primary: '#85C47C',
   inactive: '#CCC',
 };

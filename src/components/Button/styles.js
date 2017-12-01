@@ -18,6 +18,12 @@ const styles = StyleSheet.create({
   buttonPrimary: {
     backgroundColor: colors.primary,
   },
+  right: {
+    marginLeft: 7.5,
+  },
+  left: {
+    marginRight: 7.5,
+  },
 });
 
 export default styles;

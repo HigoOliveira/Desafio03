@@ -24,9 +24,9 @@ const styles = StyleSheet.create({
     borderColor: colors.light,
     borderRadius: 5,
     borderWidth: 1,
-    marginBottom: 10,
   },
   containerButton: {
+    marginTop: 10,
     flexDirection: 'row',
   },
 });
