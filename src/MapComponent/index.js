@@ -36,13 +36,15 @@ export default class Map extends Component {
               longitude: -49.6451598,
             }}
           >
-            <Image
-              source={{
-                uri: 'https://avatars3.githubusercontent.com/u/3085522?s=460&v=4',
-              }}
-              style={styles.image}
-              onLoad={() => this.forceUpdate()}
-            />
+            <View style={styles.border}>
+              <Image
+                source={{
+                  uri: 'https://avatars3.githubusercontent.com/u/3085522?s=460&v=4',
+                }}
+                style={styles.image}
+                onLoad={() => this.forceUpdate()}
+              />
+            </View>
           </MapView.Marker>
         </MapView>
         <Modal ref={(ref) => { this.modal = ref; }} />
