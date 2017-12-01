@@ -11,7 +11,9 @@
 		"react": "16.0.0",
 		"react-native": "0.50.4",
 		"react-native-maps": "^0.17.1",
-		"reactotron-react-native": "^1.13.2"
+		"react-redux": "^5.0.6",
+		"reactotron-react-native": "^1.13.2",
+		"redux": "^3.7.2"
 	},
 	"devDependencies": {
 		"babel-eslint": "^8.0.2",

@@ -9,11 +9,23 @@ import styles from './styles';
 
 
 export default class Map extends Component {
-  state = {};
+  state = {
+    users: [
+      {
+        id: '09saidfsa09f-asdasf0',
+        coordinate: {
+          latitude: -27.2177659,
+          longitude: -49.6451598,
+        },
+        login: 'Higo Ribeiro',
+        bio: 'Descrição da Bio',
+        image: 'https://avatars3.githubusercontent.com/u/3085522?s=460&v=4',
+      },
+    ],
+  };
 
   handleLongPress = (e) => {
-    console.tron.log('me chamou');
-    console.tron.log(e); // <- Não aparece
+    console.tron.log(e.coordinate); // <- Não aparece
     this.modal.setModalVisible(true);
   }
 
@@ -30,22 +42,24 @@ export default class Map extends Component {
           }}
           onLongPress={(event) => { this.handleLongPress(event.nativeEvent); }}
         >
-          <MapView.Marker
-            coordinate={{
-                latitude: -27.2177659,
-              longitude: -49.6451598,
-            }}
-          >
-            <View style={styles.border}>
-              <Image
-                source={{
-                  uri: 'https://avatars3.githubusercontent.com/u/3085522?s=460&v=4',
-                }}
-                style={styles.image}
-                onLoad={() => this.forceUpdate()}
-              />
-            </View>
-          </MapView.Marker>
+          {this.state.users.map(user => (
+            <MapView.Marker
+              coordinate={user.coordinate}
+              key={user.id}
+              title={user.login}
+              description={user.bio}
+            >
+              <View style={styles.border}>
+                <Image
+                  source={{
+                    uri: user.image,
+                  }}
+                  style={styles.image}
+                  onLoad={() => this.forceUpdate()}
+                />
+              </View>
+            </MapView.Marker>
+            ))}
         </MapView>
         <Modal ref={(ref) => { this.modal = ref; }} />
       </View>
