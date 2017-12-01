@@ -28,8 +28,6 @@ const styles = StyleSheet.create({
   },
   containerButton: {
     flexDirection: 'row',
-    flexGrow: 1,
-    flexBasis: 0,
   },
 });
 

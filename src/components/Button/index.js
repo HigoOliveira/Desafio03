@@ -8,8 +8,14 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-const Button = ({ onPress, text }) => (
-  <TouchableOpacity style={styles.button} onPress={onPress}>
+const Button = ({ onPress, text, primary }) => (
+  <TouchableOpacity
+    style={[
+      styles.button,
+      primary ? styles.buttonPrimary : null,
+    ]}
+    onPress={onPress}
+  >
     <Text style={styles.text}>{text}</Text>
   </TouchableOpacity>
 );
@@ -17,6 +23,10 @@ const Button = ({ onPress, text }) => (
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
+  primary: PropTypes.bool,
 };
 
+Button.defaultProps = {
+  primary: false,
+};
 export default Button;

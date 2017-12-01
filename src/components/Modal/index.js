@@ -34,6 +34,7 @@ export default class MyModal extends Component {
             <TextInput
               style={styles.input}
               underlineColorAndroid="rgba(0,0,0,0)"
+              placeholder="Usuário no Github"
             />
 
             <View style={styles.containerButton}>

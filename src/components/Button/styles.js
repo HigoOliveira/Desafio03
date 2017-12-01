@@ -8,12 +8,15 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'stretch',
+    flex: 1,
   },
   text: {
     color: colors.white,
     fontSize: fonts.regular,
     fontWeight: 'bold',
+  },
+  buttonPrimary: {
+    backgroundColor: colors.primary,
   },
 });
 
