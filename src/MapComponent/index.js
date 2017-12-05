@@ -36,7 +36,6 @@ class Map extends Component {
   }
 
   render() {
-    console.tron.log(this.props.users);
     return (
       <View style={styles.container}>
         <MapView
@@ -61,13 +60,13 @@ class Map extends Component {
                   source={{
                     uri: user.avatar_url,
                   }}
-                  key={`image-key-${user.id}`}
+                  key={`${user.id}`}
                   style={styles.image}
                   onLoad={() => this.forceUpdate()}
                 />
               </View>
             </MapView.Marker>
-            ))}
+          ))}
         </MapView>
         <Modal
           visible={this.state.showModal}

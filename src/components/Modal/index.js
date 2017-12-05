@@ -38,12 +38,16 @@ class MyModal extends Component {
         visible={this.props.visible}
         transparent
         onRequestClose={() => {}}
+        onShow={() => { this.input.focus(); }}
       >
         <View style={styles.overlay}>
           <View style={styles.container}>
             <Text style={styles.title}>Adicionar novo local</Text>
             <TextInput
               style={styles.input}
+              ref={(ref) => { this.input = ref; }}
+              autoCaptalize="none"
+              autoCorrect={false}
               underlineColorAndroid="rgba(0,0,0,0)"
               placeholder="Usuário no Github"
               value={this.state.user}
@@ -62,6 +66,7 @@ class MyModal extends Component {
                 text="Salvar"
                 onPress={() => {
                   this.props.addUser(this.state.user, this.props.coordinate);
+                  this.setState({ user: '' });
                   this.props.onCloseModal();
                 }}
                 primary
